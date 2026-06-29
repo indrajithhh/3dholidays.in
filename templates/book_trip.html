@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Book {{ trip.title }} | 3DHOLIDAYS{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>Book now</span>
+        <h2>Reserve your spot for {{ trip.title }}</h2>
+        <p>Complete the booking form and our team will confirm your package details shortly.</p>
+    </div>
+    <div class="container package-details-grid">
+        <div class="package-detail-card">
+            <h3>Trip summary</h3>
+            <p class="package-meta">{{ trip.category }} · {{ trip.destination|default:'Destination TBA' }}</p>
+            <p>{{ trip.description }}</p>
+            <div class="package-details-grid">
+                <div><span class="card-label">Price</span><p>₹{{ trip.price }}</p></div>
+                <div><span class="card-label">Date</span><p>{{ trip.departure_date|default:'Flexible' }}</p></div>
+            </div>
+        </div>
+        <div class="package-detail-card">
+            <h3>Booking details</h3>
+            <form method="POST" class="page-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

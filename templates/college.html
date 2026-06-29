@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}College Tour Enquiry | 3DHOLIDAYS{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>College Tours</span>
+        <h2>Book an educational tour package</h2>
+        <p>Tell us your group size, travel dates and itinerary needs so we can craft the ideal college tour.</p>
+    </div>
+    <div class="container page-form">
+        <form method="POST" class="page-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit Enquiry</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Group Packages | 3DHOLIDAYS{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>Group Packages</span>
+        <h2>Explore curated packages for groups and pilgrimages</h2>
+        <p>Choose a package built for comfort, convenience, and unforgettable shared experiences.</p>
+    </div>
+    <div class="container trip-container">
+        {% for trip in trips %}
+            <div class="package-card">
+                {% if trip.cover_photo %}
+                    <img src="{{ trip.cover_photo.url }}" alt="{{ trip.title }}" class="package-cover">
+                {% else %}
+                    <div class="package-cover placeholder">No cover image</div>
+                {% endif %}
+                <div class="package-info">
+                    <h2>{{ trip.title }}</h2>
+                    <p class="package-meta">{{ trip.destination|default:'Destination TBA' }} • {{ trip.category }}</p>
+                    <p>{{ trip.description|truncatechars:130 }}</p>
+                    <div class="package-details-grid">
+                        <div><span class="card-label">Price</span><p>₹{{ trip.price }}</p></div>
+                        <div><span class="card-label">Departure</span><p>{{ trip.departure_date|default:'Flexible dates' }}</p></div>
+                    </div>
+                    <div class="package-actions">
+                        <a href="{% url 'package_detail' trip.id %}" class="btn-outline">View Details</a>
+                        <a href="{% url 'book_trip' trip.id %}" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No packages are available at the moment. Please check back soon.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Pilgrimage Enquiry | 3DHOLIDAYS{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>Pilgrimage</span>
+        <h2>Plan your spiritual journey</h2>
+        <p>Submit your pilgrimage enquiry and we’ll design a respectful, comfortable travel plan.</p>
+    </div>
+    <div class="container page-form">
+        <form method="POST" class="page-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit Enquiry</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+

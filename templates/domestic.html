@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Domestic Tour Enquiry | 3DHOLIDAYS{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>Domestic Tours</span>
+        <h2>Enquire about our domestic trip packages</h2>
+        <p>Fill out your travel details and our coordinators will recommend routes for your group.</p>
+    </div>
+    <div class="container page-form">
+        <form method="POST" class="page-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit Enquiry</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+

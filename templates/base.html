@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}3DHOLIDAYS | Premium Travel Experiences{% endblock %}</title>
+    <meta name="description" content="3DHOLIDAYS offers premium travel packages for domestic, international, college, pilgrimage, and group tours with personalized support and modern booking experiences.">
+    <meta property="og:title" content="3DHOLIDAYS | Premium Travel Experiences">
+    <meta property="og:description" content="Explore curated travel packages, group tours, and personalized itineraries with 3DHOLIDAYS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:8000/">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=3DHOLIDAYS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="3DHOLIDAYS | Premium Travel Experiences">
+    <meta name="twitter:description" content="Explore curated travel packages, group tours, and personalized itineraries with 3DHOLIDAYS.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "3DHOLIDAYS",
+      "url": "http://127.0.0.1:8000/",
+      "logo": "https://via.placeholder.com/300x80.png?text=3DHOLIDAYS",
+      "sameAs": [],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91 7034651160",
+        "contactType": "customer service",
+        "areaServed": "IN"
+      }]
+    }
+    </script>
+</head>
+<body class="theme-light">
+<header>
+    <nav class="navbar">
+        <a class="logo" href="{% url 'home' %}">3DHOLIDAYS</a>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'domestic' %}">Domestic Tours</a></li>
+                <li><a href="{% url 'international' %}">International Tours</a></li>
+                <li><a href="{% url 'college' %}">College Tours</a></li>
+                <li><a href="{% url 'packages' %}">Group Tours</a></li>
+                <li><a href="{% url 'pilgrimage' %}">Pilgrimage</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="btn btn-nav" href="{% url 'packages' %}">Book Now</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+    </nav>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<a class="whatsapp" href="https://wa.me/917034651160" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span>WhatsApp</span>
+</a>
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <h3>3DHOLIDAYS</h3>
+            <p>Your trusted travel partner for premium domestic, international, college and group tour packages.</p>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'packages' %}">Packages</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>Phone: <a href="tel:+917034651160">+91 70346 51160</a></p>
+            <p>Email: <a href="mailto:info@3dholidays.com">info@3dholidays.com</a></p>
+        </div>
+        <div>
+            <h4>Newsletter</h4>
+            <p>Subscribe for updates on new tours and exclusive packages.</p>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email" aria-label="Email address">
+                <button type="submit" class="btn btn-small">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <p class="footer-copy">© 2026 3DHOLIDAYS. All rights reserved.</p>
+</footer>
+<script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const scrollButton = document.getElementById('scrollTop');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    const setTheme = theme => {
+        if (theme === 'dark') {
+            root.classList.add('dark');
+            themeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            root.classList.remove('dark');
+            themeToggle.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+        }
+    };
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        setTheme(root.classList.contains('dark') ? 'light' : 'dark');
+    });
+
+    window.addEventListener('scroll', () => {
+        scrollButton.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    scrollButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

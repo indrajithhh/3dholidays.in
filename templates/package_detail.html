@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}{{ trip.title }} | 3DHOLIDAYS{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="container section-title">
+        <span>Package details</span>
+        <h2>{{ trip.title }}</h2>
+        <p>Experience the best of {{ trip.destination }} with a thoughtfully designed package that balances adventure, comfort, and seamless logistics.</p>
+    </div>
+    <div class="package-details-grid container">
+        <div class="package-detail-card">
+            {% if trip.cover_photo %}
+                <img src="{{ trip.cover_photo.url }}" alt="{{ trip.title }} cover" class="package-cover">
+            {% else %}
+                <div class="package-cover placeholder">No Image Available</div>
+            {% endif %}
+            <div class="package-info">
+                <p class="package-meta">{{ trip.category }} • {{ trip.destination }}</p>
+                <p class="package-description">{{ trip.description }}</p>
+                <div class="package-details-grid">
+                    <div><span class="card-label">Price</span><p>₹{{ trip.price }}</p></div>
+                    <div><span class="card-label">Duration</span><p>{{ trip.duration|default:'Flexible' }}</p></div>
+                    <div><span class="card-label">Departure</span><p>{{ trip.departure_date|default:'TBA' }}</p></div>
+                    <div><span class="card-label">Seats</span><p>{{ trip.available_seats|default:'Available' }}</p></div>
+                </div>
+                <div class="package-actions">
+                    <a href="{% url 'book_trip' trip.id %}" class="btn">Book Now</a>
+                    <a href="{% url 'packages' %}" class="btn-outline">Back to Packages</a>
+                </div>
+            </div>
+        </div>
+        <div class="package-detail-card">
+            <h3>Why book this package?</h3>
+            <ul class="feature-list">
+                <li>End-to-end support from enquiry to return journey</li>
+                <li>Expertly vetted hotels and transport partners</li>
+                <li>Group-friendly pricing and customizable upgrades</li>
+                <li>Clear itinerary with real-time booking assistance</li>
+            </ul>
+            <div class="card-actions">
+                <a href="{% url 'book_trip' trip.id %}" class="btn">Start Booking</a>
+                <a href="{% url 'contact' %}" class="btn-outline">Ask a Question</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <h1>Explore the best travel experiences with 3DHOLIDAYS</h1>
+        <p>Customized College Tours, Pilgrimage trips, Domestic escapes, International adventures, and Group packages designed for every traveler.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'packages' %}" class="btn">View Packages</a>
+            <a href="{% url 'about' %}" class="btn-outline">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-form">
+        <div class="form-container">
+            <h2>Quick Enquiry</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="id_name">Full Name</label>
+                {{ quick_form.name }}
+                <label for="id_phone">Mobile Number</label>
+                {{ quick_form.phone }}
+                <label for="id_tour_type">Tour Type</label>
+                {{ quick_form.tour_type }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="services">
+    <div class="service-card">
+        <h2>College Tours</h2>
+        <p>Custom education trips with curated experiences and smooth logistics.</p>
+        <a href="{% url 'college' %}" class="link-button">Book Enquiry</a>
+    </div>
+    <div class="service-card">
+        <h2>Pilgrimage</h2>
+        <p>Spiritual journeys to India’s most revered destinations.</p>
+        <a href="{% url 'pilgrimage' %}" class="link-button">Book Enquiry</a>
+    </div>
+    <div class="service-card">
+        <h2>Domestic Tours</h2>
+        <p>Memorable trips to India’s top scenic and cultural hotspots.</p>
+        <a href="{% url 'domestic' %}" class="link-button">Book Enquiry</a>
+    </div>
+    <div class="service-card">
+        <h2>International Tours</h2>
+        <p>Global experiences crafted for comfort, safety, and fun.</p>
+        <a href="{% url 'international' %}" class="link-button">Book Enquiry</a>
+    </div>
+</section>
+{% endblock %}
