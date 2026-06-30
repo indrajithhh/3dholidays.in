@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="hero-visual">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1050&q=80" alt="Travel destination">
+        <img src="{% static 'media/home-hero.png' %}" alt="Travel destination">
         <div class="hero-card">
             <h3>Quick Enquiry</h3>
             <p>Share your travel plan and we’ll connect you with a dedicated trip expert.</p>
@@ -54,21 +54,21 @@
     </div>
     <div class="gallery-grid container">
         <div class="gallery-card">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Mountain getaway">
+            <img src="{% static 'media/gallery-mountain.png' %}" alt="Mountain getaway">
             <div class="gallery-copy">
                 <h3>Scenic Mountain Escapes</h3>
                 <p>Experience peaceful retreats and panoramic views on curated hill station tours.</p>
             </div>
         </div>
         <div class="gallery-card">
-            <img src="https://images.unsplash.com/photo-1506278561676-b6f034ec4ad5?auto=format&fit=crop&w=900&q=80" alt="Temple journey">
+            <img src="{% static 'media/gallery-temple.png' %}" alt="Temple journey">
             <div class="gallery-copy">
                 <h3>Spiritual Pilgrimage Trails</h3>
                 <p>Connect with sacred destinations and comfortable spiritual travel arrangements.</p>
             </div>
         </div>
         <div class="gallery-card">
-            <img src="https://images.unsplash.com/photo-1519895609933-2826ab2e5860?auto=format&fit=crop&w=900&q=80" alt="City exploration">
+            <img src="{% static 'media/gallery-city.png' %}" alt="City exploration">
             <div class="gallery-copy">
                 <h3>City Breaks & Cultural Tours</h3>
                 <p>Enjoy lively itineraries crafted for groups seeking culture, dining, and discovery.</p>
@@ -85,25 +85,25 @@
     </div>
     <div class="services">
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1519821172141-bc8f8b5f0895?auto=format&fit=crop&w=600&q=80" alt="College tours" class="service-image">
+            <img src="{% static 'media/service-college.png' %}" alt="College tours" class="service-image">
             <h2>College Tours</h2>
             <p>Educational touring with logistical support and curated schedules.</p>
             <a href="{% url 'college' %}" class="link-button">Enquire Now</a>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" alt="Pilgrimage tours" class="service-image">
+            <img src="{% static 'media/service-pilgrimage.png' %}" alt="Pilgrimage tours" class="service-image">
             <h2>Pilgrimage</h2>
             <p>Spiritual travel plans built around serene stays and safe transfers.</p>
             <a href="{% url 'pilgrimage' %}" class="link-button">Enquire Now</a>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Domestic tours" class="service-image">
+            <img src="{% static 'media/service-domestic.png' %}" alt="Domestic tours" class="service-image">
             <h2>Domestic Tours</h2>
             <p>Handpicked domestic escapes, sightseeing, and group-friendly routes.</p>
             <a href="{% url 'domestic' %}" class="link-button">Enquire Now</a>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=600&q=80" alt="International tours" class="service-image">
+            <img src="{% static 'media/service-international.png' %}" alt="International tours" class="service-image">
             <h2>International Tours</h2>
             <p>Global adventures with full itinerary support and trusted partnerships.</p>
             <a href="{% url 'international' %}" class="link-button">Enquire Now</a>
