@@ -4,17 +4,10 @@ from .models import Inquiry, QuickInquiry, GroupTrip
 from .forms import InquiryForm, QuickInquiryForm, GroupBookingForm
 
 
+from django.http import HttpResponse
+
 def home(request):
-    if request.method == 'POST':
-        form = QuickInquiryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('thank_you')
-    else:
-        form = QuickInquiryForm()
-
-    return render(request, 'home.html', {'quick_form': form})
-
+    return HttpResponse("Homepage works!")
 
 def _save_inquiry(request, tour_type, template_name):
     if request.method == 'POST':
