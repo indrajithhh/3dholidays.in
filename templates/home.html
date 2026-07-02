@@ -1,3 +1,4 @@
+{% load static %}
 {% extends 'base.html' %}
 
 {% block title %}Home | 3DHOLIDAYS{% endblock %}
@@ -32,6 +33,7 @@
         <div class="hero-card">
             <h3>Quick Enquiry</h3>
             <p>Share your travel plan and we’ll connect you with a dedicated trip expert.</p>
+            {% comment %}
             <form method="POST">
                 {% csrf_token %}
                 <label for="id_name">Full Name</label>
@@ -42,6 +44,7 @@
                 {{ quick_form.tour_type }}
                 <button type="submit" class="btn btn-small">Send Enquiry</button>
             </form>
+            {% endcomment %}
         </div>
     </div>
 </section>
