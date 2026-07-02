@@ -1,5 +1,116 @@
-{% extends "base.html" %}
+{% load static %}
+{% extends 'base.html' %}
+
+{% block title %}Home | 3DHOLIDAYS{% endblock %}
 
 {% block content %}
-<h1>Home Template Works</h1>
+<section class="hero">
+    <div class="hero-copy">
+        <span class="eyebrow">Discover Unlimited Journeys</span>
+        <h1>Premium travel experiences for groups, colleges, and families.</h1>
+        <p>From curated international escapes to seamless college tours and pilgrimage packages, 3DHOLIDAYS brings every itinerary to life with comfort, safety, and expert planning.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'packages' %}" class="btn">Explore Packages</a>
+            <a href="{% url 'contact' %}" class="btn-outline">Talk to an Expert</a>
+        </div>
+        <div class="hero-highlights">
+            <div class="hero-highlight">
+                <h3>24/7 Support</h3>
+                <p>Dedicated travel coordinators every step of the way.</p>
+            </div>
+            <div class="hero-highlight">
+                <h3>Custom Itineraries</h3>
+                <p>Tailored itineraries for student groups, corporate cohorts, and spiritual journeys.</p>
+            </div>
+            <div class="hero-highlight">
+                <h3>Verified Safety</h3>
+                <p>Trusted partners, comfortable transport, and reliable stays.</p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <img src="{% static 'media/home-hero.png' %}" alt="Travel destination">
+        <div class="hero-card">
+            <h3>Quick Enquiry</h3>
+            <p>Share your travel plan and we’ll connect you with a dedicated trip expert.</p>
+         
+            <form method="POST">
+                {% csrf_token %}
+                <label for="id_name">Full Name</label>
+                {{ quick_form.name }}
+                <label for="id_phone">Mobile Number</label>
+                {{ quick_form.phone }}
+                <label for="id_tour_type">Tour Type</label>
+                {{ quick_form.tour_type }}
+                <button type="submit" class="btn btn-small">Send Enquiry</button>
+            </form>
+         
+        </div>
+    </div>
+</section>
+
+<section class="page-section image-grid-section">
+    <div class="container section-title">
+        <span>Featured moments</span>
+        <h2>Travel inspiration from our latest journeys</h2>
+        <p>Browse destination highlights and photo stories from premium group tours and curated escapes.</p>
+    </div>
+    <div class="gallery-grid container">
+        <div class="gallery-card">
+            <img src="{% static 'media/gallery-mountain.png' %}" alt="Mountain getaway">
+            <div class="gallery-copy">
+                <h3>Scenic Mountain Escapes</h3>
+                <p>Experience peaceful retreats and panoramic views on curated hill station tours.</p>
+            </div>
+        </div>
+        <div class="gallery-card">
+            <img src="{% static 'media/gallery-temple.png' %}" alt="Temple journey">
+            <div class="gallery-copy">
+                <h3>Spiritual Pilgrimage Trails</h3>
+                <p>Connect with sacred destinations and comfortable spiritual travel arrangements.</p>
+            </div>
+        </div>
+        <div class="gallery-card">
+            <img src="{% static 'media/gallery-city.png' %}" alt="City exploration">
+            <div class="gallery-copy">
+                <h3>City Breaks & Cultural Tours</h3>
+                <p>Enjoy lively itineraries crafted for groups seeking culture, dining, and discovery.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section">
+    <div class="container section-title">
+        <span>What We Offer</span>
+        <h2>Travel solutions for every group and destination</h2>
+        <p>Choose from tailored domestic trips, international voyages, college excursions, pilgrimage journeys, and flexible group packages.</p>
+    </div>
+    <div class="services">
+        <div class="service-card">
+            <img src="{% static 'media/service-college.png' %}" alt="College tours" class="service-image">
+            <h2>College Tours</h2>
+            <p>Educational touring with logistical support and curated schedules.</p>
+            <a href="{% url 'college' %}" class="link-button">Enquire Now</a>
+        </div>
+        <div class="service-card">
+            <img src="{% static 'media/service-pilgrimage.png' %}" alt="Pilgrimage tours" class="service-image">
+            <h2>Pilgrimage</h2>
+            <p>Spiritual travel plans built around serene stays and safe transfers.</p>
+            <a href="{% url 'pilgrimage' %}" class="link-button">Enquire Now</a>
+        </div>
+        <div class="service-card">
+            <img src="{% static 'media/service-domestic.png' %}" alt="Domestic tours" class="service-image">
+            <h2>Domestic Tours</h2>
+            <p>Handpicked domestic escapes, sightseeing, and group-friendly routes.</p>
+            <a href="{% url 'domestic' %}" class="link-button">Enquire Now</a>
+        </div>
+        <div class="service-card">
+            <img src="{% static 'media/service-international.png' %}" alt="International tours" class="service-image">
+            <h2>International Tours</h2>
+            <p>Global adventures with full itinerary support and trusted partnerships.</p>
+            <a href="{% url 'international' %}" class="link-button">Enquire Now</a>
+        </div>
+    </div>
+</section>
 {% endblock %}
