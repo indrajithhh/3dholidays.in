@@ -1,0 +1,741 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Terms & Conditions | 3DHOLIDAYS - Premium Travel Packages{% endblock %}
+
+{% block content %}
+<!-- SEO Meta Tags -->
+<meta name="description" content="Read 3DHOLIDAYS Terms & Conditions for travel bookings, cancellation policies, payment terms, and customer responsibilities.">
+<meta property="og:title" content="Terms & Conditions | 3DHOLIDAYS">
+<meta property="og:description" content="Complete Terms & Conditions for 3DHOLIDAYS travel and tour services.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://3dholiday.in/terms/">
+<meta property="og:image" content="{% static 'images/og-terms.jpg' %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms & Conditions | 3DHOLIDAYS">
+<meta name="twitter:description" content="Complete Terms & Conditions for 3DHOLIDAYS travel and tour services.">
+<link rel="canonical" href="https://3dholiday.in/terms/">
+
+<!-- Schema.org Organization Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms & Conditions",
+  "url": "https://3dholiday.in/terms/",
+  "organization": {
+    "@type": "TravelAgency",
+    "name": "3DHOLIDAYS",
+    "url": "https://3dholiday.in",
+    "logo": "https://3dholiday.in/static/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7034651160",
+      "contactType": "customer service",
+      "areaServed": "IN"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    }
+  },
+  "datePublished": "2026-01-01",
+  "dateModified": "2026-07-02"
+}
+</script>
+
+<style>
+.terms-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.terms-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-hero p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.breadcrumb {
+    background: #f5f5f5;
+    padding: 15px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 40px;
+}
+
+.breadcrumb a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #999;
+}
+
+.breadcrumb .current {
+    color: #333;
+    font-weight: 600;
+}
+
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.terms-toc {
+    background: #f9f9f9;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    animation: slideUp 0.6s ease-out;
+}
+
+.terms-toc h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-toc ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.terms-toc li {
+    margin: 0;
+}
+
+.terms-toc a {
+    color: #667eea;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.terms-toc a:hover {
+    background: #f0f0f0;
+    color: #764ba2;
+    padding-left: 15px;
+}
+
+.terms-toc a::before {
+    content: "→";
+    font-weight: bold;
+}
+
+.terms-section {
+    margin-bottom: 50px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.terms-section h2 {
+    font-size: 1.6rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-section h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-section p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.terms-section ul,
+.terms-section ol {
+    margin: 15px 0 15px 30px;
+    line-height: 1.8;
+}
+
+.terms-section li {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.terms-section strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.policy-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f9fafc 100%);
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.policy-card:hover {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    transform: translateX(5px);
+}
+
+.policy-card strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.warning-box {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #856404;
+}
+
+.warning-box strong {
+    color: #856404;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: white;
+    border-bottom-color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.contact-info a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .terms-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .terms-hero p {
+        font-size: 1rem;
+    }
+
+    .terms-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .terms-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-section {
+        padding: 25px;
+    }
+
+    .terms-toc {
+        padding: 20px;
+    }
+
+    .policy-card {
+        padding: 15px;
+    }
+}
+
+/* Dark Mode Support */
+:root.dark .terms-toc {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+}
+
+:root.dark .terms-toc a {
+    color: #9fa8ff;
+}
+
+:root.dark .terms-toc a:hover {
+    background: #3a3a3a;
+    color: #b8c5ff;
+}
+
+:root.dark .terms-section h2,
+:root.dark .terms-section h3 {
+    color: #9fa8ff;
+}
+
+:root.dark .terms-section p,
+:root.dark .terms-section li {
+    color: #ccc;
+}
+
+:root.dark .terms-section strong {
+    color: #fff;
+}
+
+:root.dark .policy-card {
+    background: #3a3a3a;
+    border-left-color: #9fa8ff;
+}
+
+:root.dark .breadcrumb {
+    background: #2a2a2a;
+    border-bottom-color: #3a3a3a;
+}
+
+:root.dark .breadcrumb a {
+    color: #9fa8ff;
+}
+
+:root.dark .breadcrumb .current {
+    color: #fff;
+}
+</style>
+
+<!-- Hero Banner -->
+<div class="terms-hero">
+    <h1>Terms & Conditions</h1>
+    <p>Please read these terms carefully before booking your travel packages with 3DHOLIDAYS</p>
+</div>
+
+<!-- Breadcrumb Navigation -->
+<div class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a>
+    <span>/</span>
+    <span class="current">Terms & Conditions</span>
+</div>
+
+<div class="terms-container">
+    <!-- Table of Contents -->
+    <div class="terms-toc">
+        <h2>Quick Navigation</h2>
+        <ul>
+            <li><a href="#acceptance">Acceptance of Terms</a></li>
+            <li><a href="#booking">Booking Policy</a></li>
+            <li><a href="#payment">Payment Terms</a></li>
+            <li><a href="#cancellation">Cancellation & Refund Policy</a></li>
+            <li><a href="#documents">Travel Documents</a></li>
+            <li><a href="#customer-resp">Customer Responsibilities</a></li>
+            <li><a href="#operator-resp">Tour Operator Responsibilities</a></li>
+            <li><a href="#hotel-transport">Hotel & Transport Policies</a></li>
+            <li><a href="#itinerary-changes">Changes to Itinerary</a></li>
+            <li><a href="#liability">Liability Disclaimer</a></li>
+            <li><a href="#force-majeure">Force Majeure</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#intellectual">Intellectual Property</a></li>
+            <li><a href="#governing-law">Governing Law</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+        </ul>
+    </div>
+
+    <!-- 1. Acceptance of Terms -->
+    <section id="acceptance" class="terms-section">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By booking a travel package with 3DHOLIDAYS, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. These terms apply to all bookings made through our website, mobile application, or direct contact with our office.</p>
+        <p>If you do not agree with any part of these terms, please do not complete your booking. 3DHOLIDAYS reserves the right to modify these terms at any time without prior notice. Continued use of our services after modifications constitutes acceptance of the updated terms.</p>
+    </section>
+
+    <!-- 2. Booking Policy -->
+    <section id="booking" class="terms-section">
+        <h2>2. Booking Policy</h2>
+        <h3>Eligibility</h3>
+        <p>All bookings must be made by individuals who are at least 18 years of age or with parental consent. For group bookings involving minors, a parent or legal guardian must be responsible for the entire group.</p>
+        
+        <h3>Confirmation</h3>
+        <p>A booking is considered confirmed only when:</p>
+        <ul>
+            <li>The booking form is completed with accurate information</li>
+            <li>The required advance payment is received in our account</li>
+            <li>A booking confirmation email is sent by 3DHOLIDAYS</li>
+        </ul>
+
+        <h3>Accuracy of Information</h3>
+        <p>You are responsible for ensuring that all personal information provided during booking is accurate and up-to-date. Incorrect details may result in denial of travel or additional charges. 3DHOLIDAYS is not responsible for any issues arising from incomplete or incorrect information.</p>
+
+        <h3>Group Bookings</h3>
+        <p>For group bookings (10+ passengers), a designated group leader must be identified. The group leader is responsible for all members of the group and for ensuring compliance with these terms.</p>
+    </section>
+
+    <!-- 3. Payment Terms -->
+    <section id="payment" class="terms-section">
+        <h2>3. Payment Terms</h2>
+        <h3>Payment Methods</h3>
+        <p>3DHOLIDAYS accepts the following payment methods:</p>
+        <ul>
+            <li>Bank Transfer (Direct transfer to provided account)</li>
+            <li>Credit/Debit Cards (Visa, Mastercard, American Express)</li>
+            <li>Digital Wallets (UPI, Google Pay, PhonePe)</li>
+            <li>Cheque (In-person or by mail, cleared before confirmation)</li>
+        </ul>
+
+        <h3>Advance Payment & Installments</h3>
+        <ul>
+            <li><strong>Domestic Tours:</strong> 40% advance, balance 20 days before departure</li>
+            <li><strong>International Tours:</strong> 50% advance, balance 30 days before departure</li>
+            <li><strong>Group Tours:</strong> 50% advance, balance 45 days before departure</li>
+            <li><strong>Installment Plans:</strong> Available on request with 2% additional interest</li>
+        </ul>
+
+        <h3>Currency & Taxes</h3>
+        <p>All prices are quoted in Indian Rupees (INR). GST (18%) is included in quoted rates unless otherwise specified. International bookings may require additional currency conversion, details of which will be provided at the time of booking.</p>
+
+        <h3>Price Protection</h3>
+        <p>Prices are valid for 7 days from the quote date. After this period, rates are subject to change based on hotel rates, fuel charges, and currency fluctuations.</p>
+
+        <div class="warning-box">
+            <strong>⚠️ Important:</strong> Non-receipt of payment confirmation does not guarantee a booking. Always maintain proof of payment and contact us to confirm receipt.
+        </div>
+    </section>
+
+    <!-- 4. Cancellation & Refund Policy -->
+    <section id="cancellation" class="terms-section">
+        <h2>4. Cancellation & Refund Policy</h2>
+        <h3>Cancellation by Customer</h3>
+        <p>Cancellations must be made in writing (email or physical letter) to be considered valid. The following cancellation charges apply based on days prior to departure:</p>
+
+        <div class="policy-card">
+            <strong>Domestic Tours Cancellation Charges:</strong>
+            • More than 45 days before departure: 10% of total cost (non-refundable)<br>
+            • 30-44 days before departure: 25% of total cost<br>
+            • 15-29 days before departure: 50% of total cost<br>
+            • 7-14 days before departure: 75% of total cost<br>
+            • Less than 7 days before departure: 100% (Non-refundable)
+        </div>
+
+        <div class="policy-card">
+            <strong>International Tours Cancellation Charges:</strong>
+            • More than 60 days before departure: 15% of total cost<br>
+            • 45-59 days before departure: 35% of total cost<br>
+            • 30-44 days before departure: 60% of total cost<br>
+            • Less than 30 days before departure: 100% (Non-refundable)
+        </div>
+
+        <h3>Refund Processing</h3>
+        <p>Approved refunds will be processed within 30 days of cancellation. Refunds will be credited to the original payment method. Bank processing time (5-7 working days) is not the responsibility of 3DHOLIDAYS.</p>
+
+        <h3>Cancellation by 3DHOLIDAYS</h3>
+        <p>3DHOLIDAYS may cancel a tour in the following circumstances:</p>
+        <ul>
+            <li>Insufficient number of bookings (minimum 15 people for group tours)</li>
+            <li>Force majeure events (natural disasters, pandemics, war, etc.)</li>
+            <li>Non-payment or fraudulent payment</li>
+            <li>Unsafe travel conditions</li>
+        </ul>
+        <p>In case of cancellation by 3DHOLIDAYS, a full refund or date change option will be provided. Alternative tour arrangements may be offered at no additional cost.</p>
+
+        <h3>No-Show Policy</h3>
+        <p>If a passenger does not show up for the tour without prior notification, no refund will be provided, and no credit will be issued.</p>
+    </section>
+
+    <!-- 5. Travel Documents -->
+    <section id="documents" class="terms-section">
+        <h2>5. Travel Documents</h2>
+        <h3>Passport & Visa Requirements</h3>
+        <p>For international tours, passengers are responsible for:</p>
+        <ul>
+            <li>Ensuring valid passport with minimum 6 months validity</li>
+            <li>Obtaining required visa(s)</li>
+            <li>Securing travel insurance (recommended)</li>
+            <li>Obtaining health certificates or vaccinations as required</li>
+        </ul>
+
+        <p>3DHOLIDAYS can provide visa assistance and guidance, but the final responsibility lies with the passenger. Delays due to visa processing are not grounds for cancellation without penalty.</p>
+
+        <h3>Travel Insurance</h3>
+        <p>Travel insurance is highly recommended and covers medical emergencies, trip cancellation, baggage loss, and repatriation. While not mandatory, it is strongly advised for international tours.</p>
+
+        <h3>Health Requirements</h3>
+        <p>Passengers must inform 3DHOLIDAYS of any medical conditions, allergies, or dietary restrictions during booking. It is the passenger's responsibility to carry all necessary medications and medical documentation.</p>
+    </section>
+
+    <!-- 6. Customer Responsibilities -->
+    <section id="customer-resp" class="terms-section">
+        <h2>6. Customer Responsibilities</h2>
+        <p>As a 3DHOLIDAYS customer, you agree to:</p>
+        <ul>
+            <li>Provide accurate and complete information during booking</li>
+            <li>Comply with all applicable laws and local customs at the destination</li>
+            <li>Respect cultural sensitivities and traditions of the destination</li>
+            <li>Follow all safety instructions provided by tour guides and operators</li>
+            <li>Maintain proper conduct and avoid disruptive behavior</li>
+            <li>Keep all travel documents and valuables secure</li>
+            <li>Arrive on time for all tour activities and transfers</li>
+            <li>Pay any additional charges incurred due to personal actions</li>
+            <li>Comply with health and safety protocols</li>
+            <li>Not engage in illegal activities or substance abuse</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ Important:</strong> Violation of these responsibilities may result in immediate expulsion from the tour without refund. 3DHOLIDAYS will not be liable for any consequences arising from customer misconduct.
+        </div>
+    </section>
+
+    <!-- 7. Tour Operator Responsibilities -->
+    <section id="operator-resp" class="terms-section">
+        <h2>7. Tour Operator Responsibilities</h2>
+        <p>3DHOLIDAYS is committed to providing high-quality travel experiences and will:</p>
+        <ul>
+            <li>Deliver services as described in the tour itinerary</li>
+            <li>Ensure qualified and professional tour guides and staff</li>
+            <li>Maintain safety standards and provide necessary emergency support</li>
+            <li>Provide comfortable and verified accommodations</li>
+            <li>Arrange reliable transportation</li>
+            <li>Be available for assistance during the tour (24/7 emergency helpline)</li>
+            <li>Comply with all applicable laws and regulations</li>
+            <li>Maintain professional conduct and respect customer privacy</li>
+        </ul>
+
+        <h3>Service Complaints</h3>
+        <p>Any complaints regarding services must be reported to our office within 48 hours of the incident. Written complaints should be submitted within 7 days. 3DHOLIDAYS will investigate and respond within 15 days.</p>
+    </section>
+
+    <!-- 8. Hotel & Transport Policies -->
+    <section id="hotel-transport" class="terms-section">
+        <h2>8. Hotel & Transport Policies</h2>
+        <h3>Hotel Accommodations</h3>
+        <ul>
+            <li>Check-in time is typically 2:00 PM; early check-in availability depends on hotel policies</li>
+            <li>Check-out time is typically 11:00 AM</li>
+            <li>Room configurations (single/double/triple) are subject to hotel availability</li>
+            <li>Hotel modifications may be made with advance notice and at no additional cost if rooms are of similar standard</li>
+            <li>Extra services (spa, gym, swimming pool) may incur additional charges</li>
+        </ul>
+
+        <h3>Transportation</h3>
+        <ul>
+            <li>Vehicles are operated by verified and licensed operators</li>
+            <li>Seat belts are mandatory for all passengers</li>
+            <li>Smoking and consumption of alcohol in vehicles is prohibited</li>
+            <li>Vehicle modifications due to road conditions or safety may be made</li>
+            <li>Delays due to traffic, weather, or mechanical issues are not grounds for refund</li>
+        </ul>
+
+        <h3>Meals & Dining</h3>
+        <p>Meals included in the package will be provided at pre-arranged restaurants. In case of dietary restrictions, advance notice must be provided. Additional dining outside the itinerary is the passenger's responsibility.</p>
+    </section>
+
+    <!-- 9. Changes to Itinerary -->
+    <section id="itinerary-changes" class="terms-section">
+        <h2>9. Changes to Itinerary</h2>
+        <h3>Schedule Modifications</h3>
+        <p>3DHOLIDAYS may modify the itinerary due to:</p>
+        <ul>
+            <li>Weather conditions and natural calamities</li>
+            <li>Local festivals or public holidays affecting availability</li>
+            <li>Unforeseen circumstances affecting venue/activity accessibility</li>
+            <li>Safety concerns</li>
+            <li>Government orders or restrictions</li>
+        </ul>
+
+        <h3>Notification & Alternatives</h3>
+        <p>Passengers will be notified of significant changes as soon as possible. Alternative activities of similar value will be provided where feasible. Minor changes do not constitute grounds for refund.</p>
+
+        <h3>No Refund for Missed Activities</h3>
+        <p>If a passenger misses an activity due to late arrival, personal decision, or failure to follow instructions, no refund will be provided. 3DHOLIDAYS is not responsible for missed activities unless caused by 3DHOLIDAYS' negligence.</p>
+    </section>
+
+    <!-- 10. Liability Disclaimer -->
+    <section id="liability" class="terms-section">
+        <h2>10. Liability Disclaimer</h2>
+        <p>To the maximum extent permitted by law, 3DHOLIDAYS shall not be liable for:</p>
+        <ul>
+            <li>Personal injury, illness, or death during the tour</li>
+            <li>Loss, theft, or damage to personal belongings</li>
+            <li>Flight delays, cancellations, or overbooking (applicable to air packages)</li>
+            <li>Hotel overbooking or room downgrades beyond our control</li>
+            <li>Service quality issues caused by third-party vendors</li>
+            <li>Accidents, injuries from activities/adventure sports</li>
+            <li>Food poisoning or allergic reactions</li>
+            <li>Any indirect, incidental, or consequential damages</li>
+        </ul>
+
+        <h3>Indemnification</h3>
+        <p>Passengers agree to indemnify and hold 3DHOLIDAYS harmless from any claims, damages, or losses arising from their violation of these terms or applicable laws.</p>
+
+        <h3>Limitation of Liability</h3>
+        <p>3DHOLIDAYS' liability, if any, shall be limited to the amount paid for the tour package.</p>
+    </section>
+
+    <!-- 11. Force Majeure -->
+    <section id="force-majeure" class="terms-section">
+        <h2>11. Force Majeure</h2>
+        <p>In the event of unforeseen circumstances beyond reasonable control, including but not limited to:</p>
+        <ul>
+            <li>Natural disasters (earthquakes, floods, hurricanes)</li>
+            <li>Pandemics or epidemics</li>
+            <li>War, terrorism, or civil unrest</li>
+            <li>Government restrictions or lockdowns</li>
+            <li>Strikes, labor disputes, or transportation failures</li>
+            <li>Infrastructure failures</li>
+        </ul>
+
+        <p><strong>3DHOLIDAYS will:</strong></p>
+        <ul>
+            <li>Provide a full refund or reschedule option (90-day validity)</li>
+            <li>Not be liable for additional costs incurred by passengers</li>
+            <li>Attempt to minimize passenger inconvenience</li>
+        </ul>
+
+        <p>Passengers accept that force majeure events are beyond our control and cannot be grounds for legal action against 3DHOLIDAYS.</p>
+    </section>
+
+    <!-- 12. Privacy Policy Reference -->
+    <section id="privacy" class="terms-section">
+        <h2>12. Privacy Policy Reference</h2>
+        <p>3DHOLIDAYS respects your privacy and protects your personal data in accordance with applicable laws. For detailed information about how we collect, use, and protect your data, please refer to our <a href="{% url 'home' %}" style="color: #667eea;">Privacy Policy</a>.</p>
+        
+        <p>Key privacy practices include:</p>
+        <ul>
+            <li>Personal information is used only for booking and communication purposes</li>
+            <li>Data is never shared with third parties without explicit consent</li>
+            <li>Secure encryption is used for all transactions</li>
+            <li>Passengers have the right to access and update their data</li>
+        </ul>
+    </section>
+
+    <!-- 13. Intellectual Property -->
+    <section id="intellectual" class="terms-section">
+        <h2>13. Intellectual Property</h2>
+        <p>All content on the 3DHOLIDAYS website and materials, including text, images, videos, logos, and designs, are the intellectual property of 3DHOLIDAYS or its licensors. Unauthorized reproduction, distribution, or use of this content is prohibited without prior written consent.</p>
+
+        <p>Passengers may:</p>
+        <ul>
+            <li>Share tour experiences on personal social media with proper credit</li>
+            <li>Take personal photographs and videos for non-commercial purposes</li>
+        </ul>
+
+        <p>Passengers may NOT:</p>
+        <ul>
+            <li>Use content for commercial purposes</li>
+            <li>Reproduce or republish content without permission</li>
+            <li>Use images or videos of other passengers without consent</li>
+        </ul>
+    </section>
+
+    <!-- 14. Governing Law -->
+    <section id="governing-law" class="terms-section">
+        <h2>14. Governing Law & Dispute Resolution</h2>
+        <h3>Jurisdiction</h3>
+        <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of <strong>India</strong>. Any dispute arising from or relating to these terms shall be subject to the exclusive jurisdiction of courts in <strong>India</strong>.</p>
+
+        <h3>Dispute Resolution Process</h3>
+        <ol>
+            <li><strong>Informal Resolution:</strong> Parties will first attempt amicable resolution through direct communication</li>
+            <li><strong>Mediation:</strong> If informal resolution fails, disputes will be referred to mediation</li>
+            <li><strong>Arbitration:</strong> Unresolved disputes will be subject to arbitration under rules applicable in India</li>
+            <li><strong>Court Action:</strong> Legal action may be pursued in courts of India as a last resort</li>
+        </ol>
+
+        <h3>Consumer Protection</h3>
+        <p>All bookings are governed by the Consumer Protection Act, 2019, and passengers have the right to file complaints with consumer courts if services do not meet the advertised standards.</p>
+    </section>
+
+    <!-- 15. Contact Information -->
+    <section id="contact" class="contact-section">
+        <h2>Contact & Support</h2>
+        <p>For any queries, complaints, or assistance regarding these Terms and Conditions or your booking, please contact us:</p>
+        <div class="contact-info">
+            <div>
+                <strong style="display: block; margin-bottom: 10px;">📞 Phone</strong>
+                <a href="tel:+917034651160">+91 70346 51160</a>
+            </div>
+            <div>
+                <strong style="display: block; margin-bottom: 10px;">✉️ Email</strong>
+                <a href="mailto:info@3dholidays.com">info@3dholidays.com</a>
+            </div>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.95rem; opacity: 0.9;">Last Updated: July 2, 2026</p>
+    </section>
+</div>
+
+{% endblock %}
