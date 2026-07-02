@@ -7,7 +7,7 @@ from .forms import InquiryForm, QuickInquiryForm, GroupBookingForm
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Homepage works!")
+    return render(request, "home.html")
 
 def _save_inquiry(request, tour_type, template_name):
     if request.method == 'POST':
